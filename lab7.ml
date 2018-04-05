@@ -362,16 +362,13 @@ position.
 class square_center_scale (p: point) (s: float) : shape =
   object (this)
   inherit square p s as super
+  method! scale (k : float) : unit =
+    let old_c = super#center in
+    super#scale k;
+    let new_c = super#center in
+    super#translate (fst old_c -. fst new_c, snd old_c -. snd new_c);
+
 end ;;
-
-(*   object (this)
-    inherit square p s as super
-    method! scale (k : float) : unit =
-      width <- k *. width;
-      height <- k *. height;
-      translate center 
-
-  end ;; *)
      
 (* Before we move on, consider: do you need to make any modifications
 to the area function you wrote in Exercise 2D to support these new
@@ -438,9 +435,9 @@ that implements a quad class type. Hint: By taking advantage of
 existing classes, you should only need to implement a single method.
 ......................................................................*)
   
-class rect_quad (p : point) (w : float) (h : float) : quad =
+(* class rect_quad (p : point) (w : float) (h : float) : quad =
   object
-  end ;;
+  end ;; *)
 
 
 (*......................................................................
@@ -449,10 +446,10 @@ that implements a quad class type. Hint: you shouldn't need to
 implement any methods!
 ......................................................................*)
 
-class square_quad (p : point) (s : float) : quad =
+(* class square_quad (p : point) (s : float) : quad =
   object
   end ;;
-
+ *)
 
 (* Remember Exercise 2D, in which you implemented an area function for
 shapes? Amazingly, even though we have continued to create new shapes,
