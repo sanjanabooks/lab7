@@ -438,11 +438,10 @@ that implements a quad class type. Hint: By taking advantage of
 existing classes, you should only need to implement a single method.
 ......................................................................*)
   
-(* UNCOMMENT ME
 class rect_quad (p : point) (w : float) (h : float) : quad =
   object
   end ;;
- *)
+
 
 (*......................................................................
 Exercise 4B: Complete a class, square_quad, that represents a square
@@ -450,11 +449,10 @@ that implements a quad class type. Hint: you shouldn't need to
 implement any methods!
 ......................................................................*)
 
-(* UNCOMMENT ME
 class square_quad (p : point) (s : float) : quad =
   object
   end ;;
-*)
+
 
 (* Remember Exercise 2D, in which you implemented an area function for
 shapes? Amazingly, even though we have continued to create new shapes,
@@ -467,12 +465,12 @@ pass it to the area function to find out its area and store the result
 in a variable "a".
 ......................................................................*)
    
-(* UNCOMMENT ME
+(*  UNCOMMENT ME
 let sq : quad = .. ;;
 
 let a = .. ;;
-*)
 
+ *)
 (*......................................................................
 Exercise 4D: Write a function, area_list, that accepts a list of
 shapes and returns a list of areas.
