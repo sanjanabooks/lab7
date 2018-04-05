@@ -56,8 +56,12 @@ Exercise 1A: Given the definitions above, write a function area_adt
 that accepts a shape_adt and returns a float representing the area of
 the shape.
 ....................................................................*)
+
 let area_adt (s : shape_adt) : float =
-  failwith "area_adt not implemented" ;;
+  match s with
+  | Square (_, x) -> x *. x
+  | Rect (_, x, y) -> x *. y
+  | Circle (_, r) -> 3.14159265 *. (r ** 2.) ;;
 
 (*....................................................................
 Exercise 1B: Write a function that, given a list of elements of type
@@ -65,7 +69,7 @@ shape_adt, returns a list of areas corresponding to every shape.
 ....................................................................*)
     
 let list_area_adt (lst : shape_adt list) : float list =
-  failwith "list_area_adt not implemented" ;;
+  List.map area_adt lst ;;
 
 
 (*====================================================================
@@ -191,23 +195,24 @@ object (this)
   val mutable height = h
 
   method area : float =
-    failwith "rect area method not implemented"
+    width *. height
 
   method bounding_box : point * point =
-    failwith "rect bounding_box method not implemented"
+    pos, (fst pos +. width, snd pos +. height)
 
   method center : point =
-    failwith "rect center method not implemented"
+    fst pos +. (width /. 2.), snd pos +. (height /. 2.)
 
   (* Destructively update pos to translate the shape by the values
      given in t. *)
   method translate (t : point) : unit =
-    failwith "rect translate method not implemented"
+    pos <- fst pos +. fst t, snd pos +. snd t;
 
   (* Scale the width and height of a rectangle from the lower-
      left corner. *)
   method scale (k : float) : unit =
-    failwith "rect scale method not implemented"
+    width <- k *. width;
+    height <- k *. height;
 
 end ;;
 
