@@ -360,7 +360,10 @@ position.
 ......................................................................*)
 
 class square_center_scale (p: point) (s: float) : shape =
-  failwith "still working on this" ;;
+  object (this)
+  inherit square p s as super
+end ;;
+
 (*   object (this)
     inherit square p s as super
     method! scale (k : float) : unit =
