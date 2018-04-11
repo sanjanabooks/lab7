@@ -434,9 +434,19 @@ that implements a quad class type. Hint: By taking advantage of
 existing classes, you should only need to implement a single method.
 ......................................................................*)
   
-(* class rect_quad (p : point) (w : float) (h : float) : quad =
+class rect_quad (p : point) (w : float) (h : float) : quad =
   object
-  end ;; *)
+
+    method area : float = failwith "not"
+    method bounding_box : point * point = failwith "not"
+    method center : point = failwith "not"
+    method translate ((tx, ty) : point) : unit =
+    failwith "square translate method not implemented"
+    method scale (k : float) : unit =
+    failwith "square scale method not implemented"
+    method sides : float * float * float * float = failwith "not"
+
+  end
 
 
 (*......................................................................
@@ -445,10 +455,20 @@ that implements a quad class type. Hint: you shouldn't need to
 implement any methods!
 ......................................................................*)
 
-(* class square_quad (p : point) (s : float) : quad =
+class square_quad (p : point) (s : float) : quad =
   object
+
+    method area : float = failwith "not"
+    method bounding_box : point * point = failwith "not"
+    method center : point = failwith "not"
+    method translate ((tx, ty) : point) : unit =
+    failwith "square translate method not implemented"
+    method scale (k : float) : unit =
+    failwith "square scale method not implemented"
+    method sides : float * float * float * float = failwith "not"
+
   end ;;
- *)
+
 
 (* Remember Exercise 2D, in which you implemented an area function for
 shapes? Amazingly, even though we have continued to create new shapes,
