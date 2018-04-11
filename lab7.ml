@@ -255,11 +255,10 @@ object(this)
 
   inherit rect p s s as super
 
-(*   method area : float =
-    failwith "square area method not implemented"
+(*   method area : float = s *. s
 
   method bounding_box : point * point =
-    failwith "square bounding_box method not implemented"
+    (fst p )
 
   method center : point =
     failwith "square center method not implemented"
